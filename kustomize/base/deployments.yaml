@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache
+  namespace: microservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: apache
+  template:
+    metadata:
+      labels:
+        component: apache
+    spec:
+      containers:
+      - name: apache
+        image: docker.io/ewolff/microservice-kubernetes-demo-apache:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog
+  namespace: microservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: catalog
+  template:
+    metadata:
+      labels:
+        component: catalog
+    spec:
+      containers:
+      - name: catalog
+        image: docker.io/ewolff/microservice-kubernetes-demo-catalog:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+  namespace: microservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: customer
+  template:
+    metadata:
+      labels:
+        component: customer
+    spec:
+      containers:
+      - name: customer
+        image: docker.io/ewolff/microservice-kubernetes-demo-customer:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+  namespace: microservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: order
+  template:
+    metadata:
+      labels:
+        component: order
+    spec:
+      containers:
+      - name: order
+        image: docker.io/ewolff/microservice-kubernetes-demo-order:latest
+        ports:
+        - containerPort: 8080

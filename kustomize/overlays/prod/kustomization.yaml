@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+namespace: microservices
+commonLabels:
+  environment: prod
+replicas:
+- name: apache
+  count: 3
+- name: catalog
+  count: 2
+- name: customer
+  count: 2
+- name: order
+  count: 2
+images:
+- name: docker.io/ewolff/microservice-kubernetes-demo-apache
+  newTag: stable
+- name: docker.io/ewolff/microservice-kubernetes-demo-catalog
+  newTag: stable
+- name: docker.io/ewolff/microservice-kubernetes-demo-customer
+  newTag: stable
+- name: docker.io/ewolff/microservice-kubernetes-demo-order
+  newTag: stable

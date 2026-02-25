@@ -1,0 +1,53 @@
+services:
+  apache:
+    name: apache
+    replicaCount: 1
+    image:
+      repository: docker.io/ewolff/microservice-kubernetes-demo-apache
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      type: ClusterIP
+      port: 80
+      targetPort: 80
+    
+  catalog:
+    name: catalog
+    replicaCount: 1
+    image:
+      repository: docker.io/ewolff/microservice-kubernetes-demo-catalog
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      type: ClusterIP
+      port: 8080
+      targetPort: 8080
+    
+  customer:
+    name: customer
+    replicaCount: 1
+    image:
+      repository: docker.io/ewolff/microservice-kubernetes-demo-customer
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      type: ClusterIP
+      port: 8080
+      targetPort: 8080
+    
+  order:
+    name: order
+    replicaCount: 1
+    image:
+      repository: docker.io/ewolff/microservice-kubernetes-demo-order
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      type: ClusterIP
+      port: 8080
+      targetPort: 8080
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

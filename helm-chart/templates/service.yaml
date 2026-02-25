@@ -1,0 +1,19 @@
+{{- range $key, $service := .Values.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $service.name }}
+  namespace: microservices
+  labels:
+    app: microservice-demo
+    component: {{ $service.name }}
+spec:
+  type: {{ $service.service.type }}
+  ports:
+  - port: {{ $service.service.port }}
+    targetPort: {{ $service.service.targetPort }}
+    protocol: TCP
+  selector:
+    run: {{ $service.name }}
+{{- end }}
