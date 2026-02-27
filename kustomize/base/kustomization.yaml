@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - deployments.yaml
 - services.yaml
+- add-resources.yaml
 commonLabels:
   app: microservice-demo
 namespace: microservices
