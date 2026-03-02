@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-path-two
+  namespace: microservices
+  labels:
+    app: test-path-two
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-path-two
+  template:
+    metadata:
+      labels:
+        app: test-path-two
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-path-two
+  namespace: microservices
+  labels:
+    app: test-path-two
+spec:
+  type: ClusterIP
+  selector:
+    app: test-path-two
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
