@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: git-revision
+  namespace: microservices
+  labels:
+    app: git-revision
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: git-revision
+  template:
+    metadata:
+      labels:
+        app: git-revision
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: git-revision
+  namespace: microservices
+  labels:
+    app: git-revision
+spec:
+  type: ClusterIP
+  selector:
+    app: git-revision
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
