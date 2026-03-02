@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-path-two
+  name: sync-check
   namespace: microservices
   labels:
-    app: test-path-two
+    app: sync-check
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-path-two
+      app: sync-check
   template:
     metadata:
       labels:
-        app: test-path-two
+        app: sync-check
     spec:
       containers:
         - name: nginx
@@ -24,14 +24,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-path-two
+  name: sync-check
   namespace: microservices
   labels:
-    app: test-path-two
+    app: sync-check
 spec:
   type: ClusterIP
   selector:
-    app: test-path-two
+    app: sync-check
   ports:
     - name: http
       port: 80
