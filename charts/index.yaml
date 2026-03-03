@@ -3,12 +3,12 @@ entries:
   microservice-demo:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2026-03-03T11:14:48.1013929-08:00"
+    created: "2026-03-03T11:28:32.7614111-08:00"
     description: A Helm chart for microservice demo application
-    digest: 2fceb361369a6be28d2cf97378ce63f545dc6cb7d8b578c38a625b6c1f52f5a1
+    digest: 82e860aaadae05388320877c1ab962ab37e249e998abec784a1dd93e1aa70ee8
     name: microservice-demo
     type: application
     urls:
-    - https://ta-ny.github.io/microservices/charts/microservice-demo-1.0.0.tgz
-    version: 1.0.0
-generated: "2026-03-03T11:14:48.0995297-08:00"
+    - https://ta-ny.github.io/microservices/charts/microservice-demo-1.0.1.tgz
+    version: 1.0.1
+generated: "2026-03-03T11:28:32.7606645-08:00"

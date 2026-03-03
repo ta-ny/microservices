@@ -4,7 +4,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ $service.name }}
-  namespace: test
   labels:
     app: microservice-demo
     component: {{ $service.name }}
